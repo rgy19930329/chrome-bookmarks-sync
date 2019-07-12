@@ -125,13 +125,6 @@ btnSync.onclick = function sync() {
     console.log(bookmarks);
     // ref.set(filter(bookmarks));
     // ref.set(filter([]));
-    axios.get("http://127.0.0.1:9999/sug?code=utf-8&q=%E7%89%99%E5%88%B7")
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
     alert(`书签已同步，当前时间：${getCurrentTime()}`);
   });
 }

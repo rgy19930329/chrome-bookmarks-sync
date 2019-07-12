@@ -4,10 +4,10 @@ const ref = new Wilddog("https://kylin.wilddogio.com/bookmarks");
  * 书签格式转换
  */
 const bookmarksFormat = (bookmarks) => {
-  
+
   /**
-	 * 深度遍历树，filter
-	 */
+   * 深度遍历树，filter
+   */
   const dfsFilter = (tree, callback) => {
     let resTree = [];
     const dfs = (tree, callback) => {
@@ -26,19 +26,21 @@ const bookmarksFormat = (bookmarks) => {
   };
 
   /**
-	 * 深度遍历树，map
-	 */
-	const dfsMap = (tree, callback) => {
-		for (var i = 0; i < tree.length; i++) {
+   * 深度遍历树，map
+   */
+  const dfsMap = (tree, callback) => {
+    for (var i = 0; i < tree.length; i++) {
       callback && (tree[i] = callback(tree[i]));
-			if (tree[i].children && tree[i].children.length > 0) {
-				dfsMap(tree[i].children, callback);
-			}
-		}
-		return tree;
+      if (tree[i].children && tree[i].children.length > 0) {
+        dfsMap(tree[i].children, callback);
+      }
+    }
+    return tree;
   };
 
-  bookmarks = dfsFilter(bookmarks, ({ title }) => title === "书签栏");
+  bookmarks = dfsFilter(bookmarks, ({
+    title
+  }) => title === "书签栏");
 
   bookmarks[0].key = "root";
 
@@ -122,7 +124,14 @@ btnSync.onclick = function sync() {
     bookmarks = bookmarksFormat(bookmarks);
     console.log(bookmarks);
     // ref.set(filter(bookmarks));
-    ref.set(filter([]));
+    // ref.set(filter([]));
+    axios.get("http://127.0.0.1:9999/sug?code=utf-8&q=%E7%89%99%E5%88%B7")
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     alert(`书签已同步，当前时间：${getCurrentTime()}`);
   });
 }

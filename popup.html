@@ -4,25 +4,31 @@
 	<title>popup页</title>
 	<meta charset="utf-8"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://cdn.wilddog.com" />  -->
-	<!-- <script src="https://cdn.wilddog.com/js/client/current/wilddog.js"></script> -->
 	<script src="./js/wilddog.js"></script>
-	<script src="./js/axios.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 	<style>
 		body {
-			font-family: 'Microsoft Yahei';
-			width: 100px;
-			height: 100px;
+			font-family: "Microsoft Yahei";
+			width: 150px;
+			height: 140px;
+			margin: 0;
+		}
+		#syncInfo {
+			text-align: center;
+			margin-top: 20px;
 		}
 	</style>
 </head>
 <body>
-	<div>
-		<h3>同步chrome书签</h3>
-		<div>
-			<button id="btnSync">同步</button>
-		</div>
+	<div class="svg-wrapper" id="btnSync">
+		<svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+			<rect id="shape" height="40" width="150" />
+			<div id="text">
+				<a href="javascript:;"><span class="spot"></span>同步</a>
+			</div>
+		</svg>
 	</div>
+	<div id="syncInfo"></div>
 	<script src="./js/index.js"></script>
 </body>
 </html>

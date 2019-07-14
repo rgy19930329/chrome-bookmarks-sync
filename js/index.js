@@ -122,9 +122,7 @@ const filter = (data) => {
 btnSync.onclick = function sync() {
   chrome.bookmarks.getTree(function (bookmarks) {
     bookmarks = bookmarksFormat(bookmarks);
-    console.log(bookmarks);
-    // ref.set(filter(bookmarks));
-    // ref.set(filter([]));
-    alert(`书签已同步，当前时间：${getCurrentTime()}`);
+    ref.set(filter(bookmarks));
+    syncInfo.innerHTML = `书签已同步<br/>${getCurrentTime()}`;
   });
 }

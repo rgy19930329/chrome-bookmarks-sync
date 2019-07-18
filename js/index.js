@@ -42,7 +42,7 @@ const bookmarksFormat = (bookmarks) => {
     title
   }) => title === "书签栏");
 
-  bookmarks[0].key = "root";
+  bookmarks[0].id = "root";
 
   return dfsMap(bookmarks, (node) => {
     if (node.children) {
@@ -122,6 +122,7 @@ const filter = (data) => {
 btnSync.onclick = function sync() {
   chrome.bookmarks.getTree(function (bookmarks) {
     bookmarks = bookmarksFormat(bookmarks);
+    areaSync.innerHTML = JSON.stringify(bookmarks);
     ref.set(filter(bookmarks));
     syncInfo.innerHTML = `书签已同步<br/>${getCurrentTime()}`;
   });

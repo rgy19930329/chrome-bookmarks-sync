@@ -5,30 +5,34 @@
 	<meta charset="utf-8"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script src="./js/wilddog.js"></script>
-	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 	<style>
 		body {
 			font-family: "Microsoft Yahei";
 			width: 150px;
-			height: 140px;
 			margin: 0;
 		}
 		#syncInfo {
 			text-align: center;
 			margin-top: 20px;
 		}
+		button {
+			width: 100%;
+			font-size: 14px;
+			padding: 5px;
+		}
+		#areaSync {
+			margin-top: 10px;
+			width: 100%;
+			height: 200px;
+			box-sizing: border-box;
+			display: block;
+		}
 	</style>
 </head>
 <body>
-	<div class="svg-wrapper" id="btnSync">
-		<svg height="40" width="150">
-			<rect id="shape" height="40" width="150" />
-			<div id="text">
-				<a href="javascript:;"><span class="spot"></span>同步</a>
-			</div>
-		</svg>
-	</div>
+	<button id="btnSync">同步</button>
 	<div id="syncInfo"></div>
+	<textarea id="areaSync"></textarea>
 	<script src="./js/index.js"></script>
 </body>
 </html>
